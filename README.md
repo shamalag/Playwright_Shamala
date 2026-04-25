@@ -1,4 +1,4 @@
-# Playwright_Shamala
+# Playwright Notes
 
 1)	To Initialize node project in playwright structure use below cmd,it will initialize project and install all dependencies.
 npm init playwright@latest

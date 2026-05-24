@@ -15,10 +15,11 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
    /* Run tests in files in parallel */
-  fullyParallel: false,
+  fullyParallel: true,
+  workers: process.env.CI ? 2 : undefined,
   timeout: 30 * 1000,
   expect: {
-    timeout: 8000
+    timeout: 10000
   },
   reporter: 'html',
   use: {

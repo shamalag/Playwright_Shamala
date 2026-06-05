@@ -27,7 +27,7 @@ test.describe('API Intercepting', () => {
         window.localStorage.setItem('token', value);
       }, token)
       await page.goto('https://rahulshettyacademy.com/client/');
-      // await page.pause()
+      // await pag.pause()
       // await expect(page.title()).toBe('Let\'s Shop');
      await expect(page.locator('[routerlink="/dashboard/myorders"]')).toBeVisible();
   })

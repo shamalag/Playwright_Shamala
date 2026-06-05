@@ -26,6 +26,9 @@ We suggest that you begin by typing:
 
     npx playwright test
 
+    ---------------.env for different environments-----------
+    $env:ENV="QA"; npx playwright test FirstTest.Spec.js 
+
 
 
 •	Javascript is asynchronous, it won’t execute the script sequentially, that’s why we use await keyword before each line of code

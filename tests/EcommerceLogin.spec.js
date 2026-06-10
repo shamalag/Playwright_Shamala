@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
-const {LoginPage} = require('../../PageObjects/LoginPage');
-const {POManager} = require('../../PageObjects/POManager');
+const {LoginPage} = require('../PageObjects/LoginPage');
+const {POManager} = require('../PageObjects/POManager');
 
 let poManager;
 // let productsList;
@@ -38,8 +38,6 @@ test.describe('Ecommerce App', () => {
         await dashboardPage.navigateToCart();
         await cartPage.verifyProductOnCart(productName);
         await cartPage.checkout();
-        
-
 
     })
 })

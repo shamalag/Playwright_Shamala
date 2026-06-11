@@ -13,7 +13,7 @@ test.describe('Ecommerce App', () => {
         poManager = new POManager(page);
     });
 
-    test.skip('creating browser context and new page', async ({ browser }) => {
+    test('creating browser context and new page', async ({ browser }) => {
         const context = await browser.newContext();
         const page = await context.newPage();
         await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
@@ -28,7 +28,7 @@ test.describe('Ecommerce App', () => {
     })
     
     test('Add product on cart', async ({ page }) => {
-         const loginPage = poManager.getLoginPage();
+        const loginPage = poManager.getLoginPage();
         await loginPage.goToLoginPage(process.env.BASEURL);
         console.log(process.env.USERNAME, process.env.PASSWORD);
         await loginPage.validLogin(process.env.USERNAME, process.env.PASSWORD);

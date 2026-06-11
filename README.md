@@ -45,3 +45,7 @@ Committing the files to Git for the first time then run below commands.
 git config --global user.email you@example.com”
 git config --global user.name "Your Name"
 
+
+Allure report:
+npm install -D allure-playwright
+

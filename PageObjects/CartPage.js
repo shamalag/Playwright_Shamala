@@ -1,4 +1,5 @@
 const {test, expect} = require('@playwright/test');
+const { time } = require('node:console');
 class CartPage{
     constructor(page){
         this.page = page;
@@ -8,7 +9,7 @@ class CartPage{
     }
 
     async verifyProductOnCart(productName){
-        await this.cartProducts.waitFor();
+        await this.cartProducts.waitFor(timeout=10000);
         await expect(this.getProductName(productName).isVisible()).toBeTruthy();
         await this.productNamesOnCart.first().textContent().then(text=>{
             expect(text).toBe(productName);

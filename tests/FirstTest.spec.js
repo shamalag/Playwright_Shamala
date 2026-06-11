@@ -44,7 +44,7 @@ expect(text).toBeTruthy();
 
 });
 
-test.only('dotenv login credentials test', async ({ page }) => {
+test('dotenv login credentials test', async ({ page }) => {
     await page.goto(process.env.BASEURL);
     await page.getByPlaceholder('email@example.com').fill(process.env.USERNAME); 
     await page.getByPlaceholder('enter your passsword').fill(process.env.PASSWORD);

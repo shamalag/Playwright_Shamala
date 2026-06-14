@@ -13,6 +13,7 @@ test('first playwright test', async ({ page }) => {
     await page.locator('.k7wcnx').filter({has: page.locator('.o2uEoz')}).filter({hasText: 'Apple iPhone 17 (Black, 256 GB)'}).click();
     // //div[@class='o2uEoz i7J1SB']/ancestor::a
     await page.waitForLoadState('networkidle');
+    
     // await page.pause();
 })
 

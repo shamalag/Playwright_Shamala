@@ -3,11 +3,11 @@ import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({
-  // path: path.resolve(__dirname, `./configs/.env.${process.env.ENV}`),
-  path: path.resolve(process.cwd(), '.env'),
-  override: true,
-});
+// dotenv.config({
+//   // path: path.resolve(__dirname, `./configs/.env.${process.env.ENV}`),
+//   path: path.resolve(process.cwd(), '.env'),
+//   override: true,
+// });
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -18,6 +18,7 @@ dotenv.config({
  */
 export default defineConfig({
   testDir:  './tests',
+  // ENV: process.env.ENV || 'qa',
   // testDir:  './tests/Regression Suite',
    /* Run tests in files in parallel */
   fullyParallel: true,
@@ -47,10 +48,10 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
   ],
 });
 

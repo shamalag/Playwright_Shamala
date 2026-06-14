@@ -26,18 +26,21 @@ We suggest that you begin by typing:
 
     npx playwright test
 
-    ---------------.env for different environments-----------
-    $env:ENV="QA"; npx playwright test FirstTest.Spec.js 
+.env -------------->
+    In .env file
+add ENV= qa/dev/prod/stage and give username and password for that environment. 
+to run script from command line $env:ENV="qa"; npx playwright test ----> for powershell
+
+    $env:ENV="qa"; npx playwright test FirstTest.Spec.js 
+
+    in .env I have taken a ENV key which we can pass from command, that ENV is configured in envConfig.js under utils folder, in this envConfig.js file get the username and password from .env file and baseurl from appData.{ENV}.json file where I have stored test data as well. in envConfig.js file take a variable data where I ahve assigned this json obj.
+
+
+Fixture files ------------>
+  Created a test-fixture.js file where I have extended test fixture and added envConfig for use, so in test we can directly take env as fixture.
 
 
 
-•	Javascript is asynchronous, it won’t execute the script sequentially, that’s why we use await keyword before each line of code
-
-•	test('first playwright test', async ({ browser }) => {
-
-
-test('first playwright test', async ({ page }) => {
-use curly braces so that it will recognize as playwright fixtures, in above lines {browser} and { page }, page and browser and page are playwright fixtures 
 
 
 

@@ -1,4 +1,4 @@
-const {test,expect} = require('@playwright/test');
+const {test, expect} = require('../fixtures/test-fixture');
 
 test('first playwright test with browser context', async ({ browser }) => {
     const context = await browser.newContext();
@@ -21,33 +21,17 @@ test('first playwright test', async ({ page }) => {
     //  page.getAttribute('#signInBtn', 'value').then(function (text) {
     //     console.log(text);
     // });
-    // await page.route('**/dashboard', async route => {
-    //     const response = await page.request.fetch(route.request());
-    //     let body = await response.json();
-    //     body.dashboard = 'modified dashboard';
-    //     route.fulfill({
-    //         response,
-    //         body: JSON.stringify(body),
-    //     });
-    // });
-    // await expect(page.locator('.card-body a')).toHaveText('modified dashboard');
-
-    // Promise.all([
-    //     context.waitForEvent('page'),
-    //     link.click(),
-    // ])
     
-const text = await page.textContent("[style*='block']");
-console.log(text);
-expect(text).toContain('Incorrect username/password');
-expect(text).toBeTruthy();
-
+    const text = await page.textContent("[style*='block']");
+    console.log(text);
+    expect(text).toContain('Incorrect username/password');
+    expect(text).toBeTruthy();
 });
 
-test('dotenv login credentials test', async ({ page }) => {
-    await page.goto(process.env.BASEURL);
-    await page.getByPlaceholder('email@example.com').fill(process.env.USERNAME); 
-    await page.getByPlaceholder('enter your passsword').fill(process.env.PASSWORD);
+test('dotenv login credentials test', async ({ page, env }) => {
+    await page.goto(env.baseurl);
+    await page.getByPlaceholder('email@example.com').fill(env.username); 
+    await page.getByPlaceholder('enter your passsword').fill(env.password);
     await page.getByRole('button', { name: 'Login' }).click();
     // await page.pause();
 })
